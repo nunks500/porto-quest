@@ -6,8 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var val = require('express-validator');
 
-var port = 8080;
-
 var app = express();
 
 // view engine setup
@@ -53,8 +51,5 @@ app.use(function(err, req, res, next) {
 
 
 
-app.listen(port, function(){
-    //Callback triggered when server is successfully listening. Hurray!
-    console.log("Server listening on: http://localhost:%s", port);
-});
+app.listen(process.env.PORT || 5000);
 
