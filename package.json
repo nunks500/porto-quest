@@ -15,7 +15,9 @@
     "morgan": "~1.8.1",
     "pg": "^7.0.0",
     "serve-favicon": "~2.4.2",
-    "express-validator": "latest"
+    "express-validator": "latest",
+    "bcrypt-nodejs": "latest",
+    "crypto": "latest"
   },
   "engines": {
     "node": "6.11.1"
