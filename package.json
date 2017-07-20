@@ -1,12 +1,13 @@
 {
-  "name": "node-postgres-todo",
+  "name": "porto-quest",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "supervisor ./bin/www"
   },
   "dependencies": {
-    "bluebird":"latest", "body-parser": "~1.17.1",
+    "bluebird": "latest",
+    "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
@@ -15,5 +16,19 @@
     "pg": "^7.0.0",
     "serve-favicon": "~2.4.2"
   },
-
+  "engines": {
+    "node": "6.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:porto-quest.git"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [
+    "heroku"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
