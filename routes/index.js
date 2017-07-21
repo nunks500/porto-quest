@@ -91,11 +91,10 @@ app.get('/api/createobj', function(req, res, next) {
 app.get('/api/getobj', function(req, res, next) {
 	
 		 database.getObjectives()
-                .then(function (user_id) {
-                    res.status(200).json({
+                .then(function (user_id) {           
                                res.status(200).send(user_id.rows);
                             });
-                })
+               
 
 
 
