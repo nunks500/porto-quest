@@ -124,7 +124,7 @@ client.connect((err) => {
 
         exports.getObjectives = function () {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM objectivos",
+                          client.query("SELECT * FROM objetivos",
                           function (err, result) {
                                     if (err) {
                                         reject(err);
