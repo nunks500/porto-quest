@@ -111,6 +111,7 @@ client.connect((err) => {
                                         reject(err2);
                                     } else {
                                      // console.log(result.rows[0].name);
+                                        console.log("saí");
                                         resolve(result2);
       
                                     }
