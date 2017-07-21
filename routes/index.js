@@ -61,3 +61,4 @@ app.get('/api/getlocals', function(req, res, next) {
 
 });
 
+}
