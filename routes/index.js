@@ -29,7 +29,6 @@ app.post('/api/createuser', function(req, res, next) {
 
 
 });
-}
 
 app.post('/api/createlocal', function(req, res, next) {
 	 var description = req.body.description;
@@ -47,5 +46,18 @@ app.post('/api/createlocal', function(req, res, next) {
 
 
 });
-}
+
+
+app.get('/api/getlocals', function(req, res, next) {
+	
+	 database.getLocals()
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+
+
+});
 
