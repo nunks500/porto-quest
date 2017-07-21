@@ -71,7 +71,7 @@ app.get('/api/getlocals', function(req, res, next) {
 
 });
 
-app.get('/api/createobj', function(req, res, next) {
+app.post('/api/createobj', function(req, res, next) {
 	 var description = req.body.description;
 	 var coins = req.body.coins;
 	 var nome = req.body.name;
