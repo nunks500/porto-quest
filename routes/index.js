@@ -71,4 +71,34 @@ app.get('/api/getlocals', function(req, res, next) {
 
 });
 
+app.get('/api/createobj', function(req, res, next) {
+	 var description = req.body.description;
+	 var coins = req.body.coins;
+	 var nome = req.body.nome;
+	 var localname = req.body.lname;
+
+		 database.insertObjective(description,coins,nome,local)
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+
+
+});
+
+app.get('/api/getobj', function(req, res, next) {
+	
+		 database.getObjectives()
+                .then(function (user_id) {
+                    res.status(200).json({
+                               res.status(200).send(user_id.rows);
+                            });
+                })
+
+
+
+});
+
 }

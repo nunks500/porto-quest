@@ -95,3 +95,45 @@ client.connect((err) => {
                           });
     }
 
+          exports.insertObjective = function (description,coins,nome,localname) {
+
+                          client.query("SELECT id FROM local WHERE description = $1",[localname],
+                          function (err, result) {
+                                    if (err) {
+                                        res.status(404).json({
+                                        message: "ID not found"
+                                        });
+                                    } else {
+                                      return new Promise(function (resolve, reject) {
+                                        client.query("INSERT INTO objectivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result],
+                                        function (err2, result2) {
+                                    if (err2) {
+                                        reject(err2);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result2);
+      
+                                    }
+                                });
+                          });
+      
+                                    }
+                                });
+                         
+    }
+
+        exports.getObjectives = function () {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM objectivos",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
