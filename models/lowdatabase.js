@@ -96,16 +96,15 @@ client.connect((err) => {
     }
 
           exports.insertObjective = function (description,coins,nome,localname) {
+            return new Promise(function (resolve, reject) {
                           client.query("SELECT id FROM local WHERE description = $1",[localname],
                           function (err, result) {
                                     if (err) {
                                         res.status(404).json({
                                         message: "ID not found"
                                         });
-                                    } else {
-                                     
-                                      return new Promise(function (resolve, reject) {
-                                        client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result.rows[0].id],
+                                    } else {                          
+                                       client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result.rows[0].id],
                                         function (err2, result2) {
                                     if (err2) {
                                         reject(err2);
@@ -116,10 +115,11 @@ client.connect((err) => {
       
                                     }
                                 });
-                          });
+                          
       
                                     }
                                 });
+                                      });
                          
     }
 
