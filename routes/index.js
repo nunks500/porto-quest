@@ -77,7 +77,7 @@ app.post('/api/createobj', function(req, res, next) {
 	 var nome = req.body.name;
 	 var localname = req.body.lname;
 
-		 database.insertObjective(description,coins,nome,local)
+		 database.insertObjective(description,coins,nome,localname)
                 .then(function (user_id) {
                     res.status(200).json({
                                 message: "SUCCESS"
