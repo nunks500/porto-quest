@@ -38,7 +38,7 @@ client.query('CREATE TABLE utilizador(id SERIAL PRIMARY KEY, username VARCHAR(15
   .catch(e => console.error(e.stack))
  // .then(() => client.end())
 
-   client.query('CREATE TABLE local(id SERIAL PRIMARY KEY, description VARCHAR(50) not null, image varchar(200) not null)')
+   client.query('CREATE TABLE local(id SERIAL PRIMARY KEY, description VARCHAR(50) not null, image varchar(200) not null,lat FLOAT not null, long FLOAT not null)')
   .then(result => console.log(result))
   .catch(e => console.error(e.stack))
 

@@ -49,3 +49,34 @@ client.connect((err) => {
             });
         });
     }
+
+     exports.insertLocal = function (description,imagelink,lat,long) {
+       
+                          client.query("INSERT INTO local(description,image,lat,long) VALUES ($1, $2, $3, $4)",[description,imagelink,lat,long],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result.insertId);
+      
+                                    }
+                                });
+
+    }
+
+    exports.getLocals = function (description,imagelink,lat,long) {
+       
+                          client.query("SELECT * FROM local",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+
+    }
+

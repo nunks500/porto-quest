@@ -31,3 +31,21 @@ app.post('/api/createuser', function(req, res, next) {
 });
 }
 
+app.post('/api/createlocal', function(req, res, next) {
+	 var description = req.body.description;
+	 var imagelink = req.body.image;
+	 var lat = req.body.lat;
+	 var long = req.body.long;
+
+	 database.insertLocal(description,imagelink,lat,long)
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+
+
+});
+}
+
