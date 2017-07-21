@@ -52,7 +52,7 @@ app.get('/api/getlocals', function(req, res, next) {
 	
 	 database.getLocals()
                 .then(function (local) {
-                    res.status(200).send(local);
+                    res.status(200).send(local.rows);
                 })
 
 
