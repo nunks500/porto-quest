@@ -96,7 +96,7 @@ client.connect((err) => {
     }
 
           exports.insertObjective = function (description,coins,nome,localname) {
-                          console.log(localname);
+                          console.log("entrei" + localname);
                           client.query("SELECT id FROM local WHERE description = $1",[localname],
                           function (err, result) {
                                     if (err) {
