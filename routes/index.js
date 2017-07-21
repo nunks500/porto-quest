@@ -47,6 +47,18 @@ app.post('/api/createlocal', function(req, res, next) {
 
 });
 
+app.delete('/api/deletelocal', function(req, res, next) {
+	 var description = req.body.description;
+
+	 database.deleteLocal(description)
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+});
+
 
 app.get('/api/getlocals', function(req, res, next) {
 	

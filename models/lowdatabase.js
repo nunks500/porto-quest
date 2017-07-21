@@ -80,4 +80,18 @@ client.connect((err) => {
                                 });
                           });
     }
+       exports.deleteLocal = function (description) {
+       return new Promise(function (resolve, reject) {
+                          client.query("DELETE FROM local WHERE description= $1",[description],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
 
