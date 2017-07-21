@@ -96,7 +96,7 @@ client.connect((err) => {
     }
 
           exports.insertObjective = function (description,coins,nome,localname) {
-
+                          console.log("entrei");
                           client.query("SELECT id FROM local WHERE description = $1",[localname],
                           function (err, result) {
                                     if (err) {
@@ -104,7 +104,7 @@ client.connect((err) => {
                                         message: "ID not found"
                                         });
                                     } else {
-                                      console.log("passei");
+                                      console.log(result);
                                       return new Promise(function (resolve, reject) {
                                         client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($2, $3, $4, $5)",[description, coins, nome, result],
                                         function (err2, result2) {
