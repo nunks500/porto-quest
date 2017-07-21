@@ -105,7 +105,7 @@ client.connect((err) => {
                                         });
                                     } else {
                                       return new Promise(function (resolve, reject) {
-                                        client.query("INSERT INTO objectivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result],
+                                        client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result],
                                         function (err2, result2) {
                                     if (err2) {
                                         reject(err2);
