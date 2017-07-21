@@ -104,8 +104,9 @@ client.connect((err) => {
                                         message: "ID not found"
                                         });
                                     } else {
+                                      console.log("passei");
                                       return new Promise(function (resolve, reject) {
-                                        client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result],
+                                        client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($2, $3, $4, $5)",[description, coins, nome, result],
                                         function (err2, result2) {
                                     if (err2) {
                                         reject(err2);
