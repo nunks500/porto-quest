@@ -62,7 +62,7 @@ client.connect((err) => {
       
                                     }
                                 });
-                        }
+                        });
 
     }
 
@@ -78,6 +78,6 @@ client.connect((err) => {
       
                                     }
                                 });
-                          }
+                          });
     }
 
