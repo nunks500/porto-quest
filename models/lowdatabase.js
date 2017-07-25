@@ -145,8 +145,8 @@ client.connect((err) => {
                                     if (err) {
                                         reject(err);
                                     } else {
-                                      console.log(result.length);
-                                      if(result.length > 0){
+              
+                                      if(result.rows.length > 0){
                                 bcrypt.compare(password, result.rows[0].password,
                                 function (err, res) {
                                     if (err) {
