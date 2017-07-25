@@ -147,6 +147,8 @@ client.connect((err) => {
                                     } else {
               
                                       if(result.rows.length > 0){
+                                        console.log(password);
+                                        console.log("cemas"+result.rows[0].password);
                                 bcrypt.compare(password, result.rows[0].password,
                                 function (err, res) {
                                     if (err) {
