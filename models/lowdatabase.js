@@ -140,7 +140,7 @@ client.connect((err) => {
 
            exports.login = function (username,password) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM utilizador where username = $1",[username],
+                          client.query("SELECT password FROM utilizador where username = $1",[username],
                           function (err, result) {
                                     if (err) {
                                         res.status(404).json({
