@@ -96,6 +96,11 @@ app.post('/api/login', function(req, res, next) {
                 .then(function (user_id) {
                    res.status(200).send(user_id.rows);
                 })
+                 .catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERRORLOGIN1"
+                    });
 
 
 
@@ -106,12 +111,7 @@ app.get('/api/getobj', function(req, res, next) {
 		 database.getObjectives()
                 .then(function (user_id) {           
                                res.status(200).send(user_id.rows);
-                            }); 
-                .catch(function (err) {
-                           res.status(406).json({
-                        message_class: 'error',
-                        message: "ERRORLOGIN1"
-                    });
+                            });
                
 
 
