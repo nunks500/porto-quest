@@ -161,11 +161,11 @@ client.connect((err) => {
                                       console.log("here2");
                                         reject('Incorrect password.');
                                     }
-                                });
-                                        
-      
-                                    }}
-                                    reject('User does not exist.');
+                                });   
+                                    }
+                                    else
+                                reject('User does not exist.');
+                                  }
                                 });
                           });
     }
