@@ -88,6 +88,21 @@ app.post('/api/createobj', function(req, res, next) {
 
 });
 
+app.post('/api/login', function(req, res, next) {
+     var username = req.body.username;
+     var password = req.body.password;
+
+         database.login(username,password)
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+
+
+});
+
 app.get('/api/getobj', function(req, res, next) {
 	
 		 database.getObjectives()

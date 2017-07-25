@@ -125,12 +125,37 @@ client.connect((err) => {
 
         exports.getObjectives = function () {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM objetivos",
+                          client.query("SELECT password FROM objetivos",
                           function (err, result) {
                                     if (err) {
                                         reject(err);
                                     } else {
                                      // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+           exports.login = function (username,password) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM utilizador where username = $1",[username],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                bcrypt.compare(password, result.rows[0].password,
+                                function (err, res) {
+                                    if (err) {
+                                        reject(err);
+                                    } else if (res === true) {
+                                        delete result[0]._password;
+                                        resolve(result[0]);
+                                    } else if (res === false) {
+                                        reject('Incorrect password.');
+                                    }
+                                });
                                         resolve(result);
       
                                     }
