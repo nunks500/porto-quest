@@ -158,7 +158,7 @@ client.connect((err) => {
                                         reject('Incorrect password.');
                                     }
                                 });
-                                        resolve(result);
+                                        
       
                                     }}
                                     reject('User does not exist.');
