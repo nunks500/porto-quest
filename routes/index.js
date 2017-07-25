@@ -78,7 +78,7 @@ app.post('/api/createobj', function(req, res, next) {
 	 var localname = req.body.lname;
 
 		 database.insertObjective(description,coins,nome,localname)
-                .then(function (user_id.rows[0]) {
+                .then(function (user_id) {
                     res.status(200).json({
                                 message: "SUCCESS"
                             });
@@ -94,7 +94,6 @@ app.post('/api/login', function(req, res, next) {
 
          database.login(username,password)
                 .then(function (user_id) {
-                   res.status(200).send(user_id);
                 })
                  .catch(function (err) {
                            res.status(406).json({
