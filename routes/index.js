@@ -94,7 +94,7 @@ app.post('/api/login', function(req, res, next) {
 
          database.login(username,password)
                 .then(function (user_id) {
-                   res.status(200).send(user_id[0].rows);
+                   res.status(200).send(user_id);
                 })
                  .catch(function (err) {
                            res.status(406).json({
