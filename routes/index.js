@@ -100,7 +100,7 @@ app.post('/api/login', function(req, res, next) {
                            res.status(406).json({
                         message_class: 'error',
                         message: "ERRORLOGIN1"
-                    });
+                    })});
 
 
 
