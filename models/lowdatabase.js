@@ -143,7 +143,9 @@ client.connect((err) => {
                           client.query("SELECT * FROM utilizador where username = $1",[username],
                           function (err, result) {
                                     if (err) {
-                                        reject(err);
+                                        res.status(404).json({
+                                        message: "username not found"
+                                        });
                                     } else {
                                 bcrypt.compare(password, result.rows[0].password,
                                 function (err, res) {
@@ -153,7 +155,9 @@ client.connect((err) => {
                                         delete result.rows[0]._password;
                                         resolve(result[0]);
                                     } else if (res === false) {
-                                        reject('Incorrect password.');
+                                        res.status(404).json({
+                                        message: "Incorrect password"
+                                        });
                                     }
                                 });
                                         resolve(result);
