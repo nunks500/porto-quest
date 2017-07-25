@@ -150,7 +150,7 @@ client.connect((err) => {
                                     if (err) {
                                         reject(err);
                                     } else if (res === true) {
-                                        delete result[0]._password;
+                                        delete result.rows[0]._password;
                                         resolve(result[0]);
                                     } else if (res === false) {
                                         reject('Incorrect password.');
