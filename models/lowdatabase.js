@@ -160,6 +160,7 @@ client.connect((err) => {
                                         resolve(result);
       
                                     }}
+                                    reject('User does not exist.');
                                 });
                           });
     }
