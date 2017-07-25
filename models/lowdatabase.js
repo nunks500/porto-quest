@@ -155,7 +155,7 @@ client.connect((err) => {
                                     } else if (res === true) {
                                         delete result.rows[0]._password;
                                         console.log(result);
-                                        resolve(result.rows[0]);
+                                        resolve(result);
                                     } else if (res === false) {
                                         reject('Incorrect password.');
                                     }
