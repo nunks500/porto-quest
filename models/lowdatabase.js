@@ -154,9 +154,11 @@ client.connect((err) => {
                                     if (err) {
                                         reject(err);
                                     } else if (res === true) {
+                                      console.log("here");
                                         delete result.rows[0]._password;
                                         resolve(result[0]);
                                     } else if (res === false) {
+                                      console.log("here2");
                                         reject('Incorrect password.');
                                     }
                                 });
