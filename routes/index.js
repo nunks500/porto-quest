@@ -110,7 +110,8 @@ app.post('/api/login', function(req, res, next) {
 app.options('/api/*', function(req, res, next) {
     
          database.getObjectives()
-                .then(function (user_id) {           
+                .then(function (user_id) {      
+                console.log("nunu");     
                                 var headers = {};
       // IE8 does not allow domains to be specified, just the *
       // headers["Access-Control-Allow-Origin"] = req.headers.origin;
