@@ -109,8 +109,6 @@ app.post('/api/login', function(req, res, next) {
 
 app.options('/api/*', function(req, res, next) {
     
-         database.getObjectives()
-                .then(function (user_id) {      
                 console.log("nunu");     
                                 var headers = {};
       // IE8 does not allow domains to be specified, just the *
@@ -121,10 +119,6 @@ app.options('/api/*', function(req, res, next) {
       headers["Access-Control-Max-Age"] = '86400'; // 24 hours
       headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
                                res.writeHead(200, headers);
-                            });
-               
-
-
 
 });
 
