@@ -106,6 +106,18 @@ app.post('/api/login', function(req, res, next) {
 
 });
 
+app.options('/api/*', function(req, res, next) {
+    
+         database.getObjectives()
+                .then(function (user_id) {           
+                               res.status(200).send();
+                            });
+               
+
+
+
+});
+
 app.get('/api/getobj', function(req, res, next) {
 	
 		 database.getObjectives()
