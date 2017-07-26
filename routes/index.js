@@ -119,6 +119,7 @@ app.options('/api/*', function(req, res, next) {
       headers["Access-Control-Max-Age"] = '86400'; // 24 hours
       headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
                                res.writeHead(200, headers);
+                               res.end();
 
 });
 
