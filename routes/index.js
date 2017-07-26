@@ -92,6 +92,7 @@ app.post('/api/login', function(req, res, next) {
      var username = req.body.username;
      var password = req.body.password;
 
+
          database.login(username,password)
                 .then(function (user_id) {
                    res.status(200).send((user_id[0].id).toString());
@@ -110,7 +111,8 @@ app.options('/api/*', function(req, res, next) {
     
          database.getObjectives()
                 .then(function (user_id) {           
-                               res.status(200).send();
+                                console.log("nunu");
+                               res.writeHead(200, {'Access-Control-Allow-Origin: *','Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'});
                             });
                
 
