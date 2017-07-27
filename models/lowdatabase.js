@@ -156,7 +156,7 @@ client.connect((err) => {
 
            exports.login = function (username,password) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT id FROM objetivos ",[username],
+                          client.query("SELECT * FROM utilizador where username = $1",[username],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
