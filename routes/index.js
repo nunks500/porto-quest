@@ -136,9 +136,9 @@ app.post('/api/login', function(req, res, next) {
 
 app.get('/api/getlatobj', function(req, res, next) {
 
-            var latest = req.body.latest;
+            var latest = req.params.latest;
             console.log(latest);
-            
+
          database.getlatest(latest)
                 .then(function (user_id) {
                    res.status(200).send(user_id);
