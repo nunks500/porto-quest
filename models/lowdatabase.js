@@ -138,9 +138,25 @@ client.connect((err) => {
                           });
     }
 
+            exports.getlatest = function (ultimos) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM objetivos order by id desc limit $1",[ultimos],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
            exports.login = function (username,password) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM utilizador where username = $1",[username],
+                          client.query("SELECT id FROM objetivos ",[username],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
