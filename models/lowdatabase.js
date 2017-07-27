@@ -140,7 +140,8 @@ client.connect((err) => {
 
             exports.getlatest = function (ultimos) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM objetivos order by id desc limit 5",
+        var temp = 5;
+                          client.query("SELECT * FROM objetivos order by id desc limit $1",[temp],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
