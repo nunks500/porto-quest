@@ -140,7 +140,7 @@ client.connect((err) => {
 
             exports.getlatest = function (latest) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM objetivos,local WHERE objetivos.localid = local.id order by objetivos.id desc limit $1",[latest],
+                          client.query("SELECT objetivos.description,objetivos.coins,local.image,objetivos.nome FROM objetivos,local WHERE objetivos.localid = local.id order by objetivos.id desc limit $1",[latest],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
