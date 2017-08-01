@@ -138,6 +138,22 @@ client.connect((err) => {
                           });
     }
 
+    exports.deleteallobj = function () {
+       return new Promise(function (resolve, reject) {
+                          client.query("DELETE from objetivos",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
             exports.getlatest = function (latest) {
        return new Promise(function (resolve, reject) {
                           client.query("SELECT objetivos.description,objetivos.coins,local.image,objetivos.nome FROM objetivos,local WHERE objetivos.localid = local.id order by objetivos.id desc limit $1",[latest],

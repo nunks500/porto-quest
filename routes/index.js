@@ -115,6 +115,20 @@ app.post('/api/createobj', function(req, res, next) {
 
 });
 
+app.delete('/api/deleteallobj', function(req, res, next) {
+
+         database.deleteallobj()
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+
+
+});
+
+
 app.post('/api/login', function(req, res, next) {
      var username = req.body.username;
      var password = req.body.password;
