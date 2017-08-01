@@ -138,6 +138,37 @@ client.connect((err) => {
                           });
     }
 
+    exports.getobjbyid = function (id) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM objetivoscompletos WHERE $1 = utilizadorid",[id]
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+    exports.insertobjcom = function (userid,objectid) {
+       return new Promise(function (resolve, reject) {
+                          client.query("INSERT INTO objetivoscompletos(objectid, utilizadorid) VALUES($1,$2)",[objectid,userid]
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
     exports.deleteallobj = function () {
        return new Promise(function (resolve, reject) {
                           client.query("DELETE from objetivos",

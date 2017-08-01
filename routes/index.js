@@ -167,7 +167,7 @@ app.get('/api/getlatobj', function(req, res, next) {
 });
 
 
-app.get('/api/getobj', function(req, res, next) {
+app.get('/api/getallobj', function(req, res, next) {
 	
 		 database.getObjectives()
                 .then(function (user_id) {           
@@ -178,5 +178,34 @@ app.get('/api/getobj', function(req, res, next) {
 
 
 });
+
+app.post('/api/insertobjcom', function(req, res, next) {
+          var userid = req.query.userid;
+          var objid = req.query.objid;
+
+         database.insertobjcom(userid,objid)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+               
+
+
+
+});
+
+
+app.post('/api/getobjbyid', function(req, res, next) {
+    var id = req.query.id;
+    
+         database.getobjbyid(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+               
+
+
+
+});
+
 
 }
