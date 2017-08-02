@@ -185,7 +185,9 @@ app.post('/api/insertobjcom', function(req, res, next) {
 
          database.insertobjcom(userid,objid)
                 .then(function (user_id) {           
-                               res.status(200).send(user_id.rows);
+                                     res.status(200).json({
+                                message: "SUCCESS"
+                            });
                             });
                
 
