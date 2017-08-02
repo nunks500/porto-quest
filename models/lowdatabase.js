@@ -140,7 +140,7 @@ client.connect((err) => {
 
     exports.getobjbyid = function (id) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * from (SELECT objectid FROM objetivoscompletos WHERE utilizadorid = $1 as m),local as x",[id],
+                          client.query("SELECT objectid FROM objetivoscompletos WHERE utilizadorid = $1",[id],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
