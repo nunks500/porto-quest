@@ -155,6 +155,7 @@ client.connect((err) => {
 
         exports.getimgbyid = function (id) {
        return new Promise(function (resolve, reject) {
+                          client.query("SELECT local.image,local.description FROM objetivoscompletos,objetivos,local WHERE utilizadorid = $1 and objetivos.id = objetivoscompletos.objectid and local.id = objetivos.localid",[id],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
