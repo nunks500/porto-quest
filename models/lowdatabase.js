@@ -153,6 +153,21 @@ client.connect((err) => {
                           });
     }
 
+        exports.getimgbyid = function (id) {
+       return new Promise(function (resolve, reject) {
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
     exports.insertobjcom = function (userid,objectid) {
        return new Promise(function (resolve, reject) {
                           client.query("INSERT INTO objetivoscompletos(objectid, utilizadorid) VALUES($1,$2)",[objectid,userid],

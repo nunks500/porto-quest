@@ -210,5 +210,18 @@ app.post('/api/getobjbyid', function(req, res, next) {
 
 });
 
+app.post('/api/getimgbyid', function(req, res, next) {
+    var id = req.body.id;
+    
+         database.getimgbyid(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+               
+
+
+
+});
+
 
 }
