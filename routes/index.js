@@ -180,8 +180,8 @@ app.get('/api/getallobj', function(req, res, next) {
 });
 
 app.post('/api/insertobjcom', function(req, res, next) {
-          var userid = req.query.userid;
-          var objid = req.query.objid;
+          var userid = req.body.userid;
+          var objid = req.body.objid;
 
          database.insertobjcom(userid,objid)
                 .then(function (user_id) {           
@@ -195,7 +195,7 @@ app.post('/api/insertobjcom', function(req, res, next) {
 
 
 app.post('/api/getobjbyid', function(req, res, next) {
-    var id = req.query.id;
+    var id = req.body.id;
     
          database.getobjbyid(id)
                 .then(function (user_id) {           
