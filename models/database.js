@@ -42,7 +42,7 @@ client.query('CREATE TABLE utilizador(id SERIAL PRIMARY KEY, username VARCHAR(15
   .then(result => console.log(result))
   .catch(e => console.error(e.stack))
 
-  client.query('CREATE TABLE objetivos(id SERIAL PRIMARY KEY, description VARCHAR(50) not null, coins int not null, nome VARCHAR(15) not null, localid int REFERENCES local(id))')
+  client.query('CREATE TABLE objetivos(id SERIAL PRIMARY KEY, description VARCHAR(50) not null,image varchar(200) not null, coins int not null, nome VARCHAR(15) not null, localid int REFERENCES local(id))')
   .then(result => console.log(result))
   .catch(e => console.error(e.stack))
 

@@ -95,7 +95,7 @@ client.connect((err) => {
                           });
     }
 
-          exports.insertObjective = function (description,coins,nome,localname) {
+          exports.insertObjective = function (description,coins,nome,localname,image) {
             return new Promise(function (resolve, reject) {
                           client.query("SELECT id FROM local WHERE description = $1",[localname],
                           function (err, result) {
@@ -104,7 +104,7 @@ client.connect((err) => {
                                         message: "ID not found"
                                         });
                                     } else {                          
-                                       client.query("INSERT INTO objetivos(description, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, coins, nome, result.rows[0].id],
+                                       client.query("INSERT INTO objetivos(description, image, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, image,coins, nome, result.rows[0].id],
                                         function (err2, result2) {
                                     if (err2) {
                                         reject(err2);
@@ -187,7 +187,7 @@ client.connect((err) => {
 
             exports.getlatest = function (latest) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT objetivos.description,objetivos.coins,local.image,objetivos.nome FROM objetivos,local WHERE objetivos.localid = local.id order by objetivos.id desc limit $1",[latest],
+                          client.query("SELECT objetivos.description,objetivos.coins,objetivos.image,objetivos.nome FROM objetivos order by objetivos.id desc limit $1",[latest],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
