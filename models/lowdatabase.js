@@ -140,7 +140,7 @@ client.connect((err) => {
 
     exports.getobjbyid = function (id) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM objetivoscompletos WHERE $1 = utilizadorid",[id]
+                          client.query("SELECT * FROM objetivoscompletos WHERE $1 = utilizadorid",[id],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
@@ -155,7 +155,7 @@ client.connect((err) => {
 
     exports.insertobjcom = function (userid,objectid) {
        return new Promise(function (resolve, reject) {
-                          client.query("INSERT INTO objetivoscompletos(objectid, utilizadorid) VALUES($1,$2)",[objectid,userid]
+                          client.query("INSERT INTO objetivoscompletos(objectid, utilizadorid) VALUES($1,$2)",[objectid,userid],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
