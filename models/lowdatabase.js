@@ -104,7 +104,6 @@ client.connect((err) => {
                                         message: "ID not found"
                                         });
                                     } else {                          
-                                       client.query("INSERT INTO objetivos(description, image, coins, nome, localid) VALUES ($1, $2, $3, $4)",[description, image,coins, nome, result.rows[0].id],
                                         function (err2, result2) {
                                     if (err2) {
                                         reject(err2);
