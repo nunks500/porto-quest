@@ -140,7 +140,7 @@ client.connect((err) => {
 
     exports.getobjbyid = function (id) {
        return new Promise(function (resolve, reject) {
-                          client.query("select unnest(array_agg(c)) from (SELECT objectid FROM objetivoscompletos WHERE utilizadorid = $1) as dt(c)",[id],
+                          client.query("SELECT objectid FROM objetivoscompletos WHERE utilizadorid = $1",[id],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
