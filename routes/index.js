@@ -230,9 +230,18 @@ app.post('/api/getimgbyid', function(req, res, next) {
                 .then(function (user_id) {           
                                res.status(200).send(user_id.rows);
                             });
-               
+            
 
+});
 
+app.post('/api/getnotimgbyid', function(req, res, next) {
+    var id = req.body.id;
+    
+         database.getnotimgbyid(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+            
 
 });
 
