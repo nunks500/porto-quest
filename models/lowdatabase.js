@@ -168,6 +168,22 @@ client.connect((err) => {
                           });
     }
 
+     exports.deleteobjcomp = function (id) {
+       return new Promise(function (resolve, reject) {
+                          client.query("DELETE FROM objetivoscompletos",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
             exports.getnotobjbyids = function (id) {
        return new Promise(function (resolve, reject) {
                           client.query("SELECT lat,long as lng,objetivos.id,objetivos.coins,objetivos.nome FROM objetivos,local WHERE local.id = objetivos.localid EXCEPT SELECT lat,long as lng,objetivos.id,objetivos.coins,objetivos.nome  FROM objetivoscompletos,objetivos,local WHERE utilizadorid = $1 and objetivos.id = objetivoscompletos.objectid and local.id = objetivos.localid",[id],

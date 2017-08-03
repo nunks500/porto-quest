@@ -209,6 +209,21 @@ app.post('/api/getobjbyid', function(req, res, next) {
 
 
 });
+
+app.delete('/api/deleteobjcomp', function(req, res, next) {
+    
+         database.deleteobjcomp()
+                .then(function (user_id) {           
+                                  res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                            });
+               
+
+
+
+});
+
 app.post('/api/getnotobjbyid', function(req, res, next) {
     var id = req.body.id;
     
