@@ -168,6 +168,22 @@ client.connect((err) => {
                           });
     }
 
+            exports.getnotobjbyids = function (id) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT lat,long,objetivos.id as lng FROM objetivos,local WHERE local.id = objetivos.localid EXCEPT SELECT lat,long as lng FROM objetivoscompletos,objetivos,local WHERE utilizadorid = $1 and objetivos.id = objetivoscompletos.objectid and local.id = objetivos.localid",[id],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
 
         exports.getimgbyid = function (id) {
        return new Promise(function (resolve, reject) {
