@@ -209,6 +209,19 @@ app.post('/api/getobjbyid', function(req, res, next) {
 
 
 });
+app.post('/api/getnotobjbyid', function(req, res, next) {
+    var id = req.body.id;
+    
+         database.getnotobjbyid(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+               
+
+
+
+});
+
 
 app.post('/api/getimgbyid', function(req, res, next) {
     var id = req.body.id;

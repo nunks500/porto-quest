@@ -153,6 +153,22 @@ client.connect((err) => {
                           });
     }
 
+        exports.getnotobjbyid = function (id) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT lat,long as lng FROM objetivos EXCEPT SELECT lat,long as lng FROM objetivoscompletos,objetivos,local WHERE utilizadorid = $1 and objetivos.id = objetivoscompletos.objectid and local.id = objetivos.localid",[id],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
         exports.getimgbyid = function (id) {
        return new Promise(function (resolve, reject) {
                           client.query("SELECT local.image,local.description,objetivos.description as obj FROM objetivoscompletos,objetivos,local WHERE utilizadorid = $1 and objetivos.id = objetivoscompletos.objectid and local.id = objetivos.localid",[id],
