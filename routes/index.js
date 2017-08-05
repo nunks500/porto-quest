@@ -151,6 +151,18 @@ app.post('/api/createobj', function(req, res, next) {
 
 });
 
+app.post('/api/getuserbyid', function(req, res, next) {
+     var id = req.body.id;
+
+         database.getuserbyid(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+
+
+
+});
+
 app.delete('/api/deleteallobj', function(req, res, next) {
 
          database.deleteallobj()

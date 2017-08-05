@@ -142,6 +142,21 @@ return new Promise(function (resolve, reject) {
                           });
     }
 
+       exports.getuserbyid = function (id) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM utilizador WHERE utilizador.id = $1",[id],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
 
        exports.deleteLocal = function (description) {
        return new Promise(function (resolve, reject) {
