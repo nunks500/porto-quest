@@ -222,6 +222,21 @@ app.get('/api/getallobj', function(req, res, next) {
 
 });
 
+app.post('/api/getuser', function(req, res, next) {
+    
+        var id = req.body.id;
+
+         database.getuser(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            });
+               
+
+
+
+});
+
+
 app.post('/api/insertobjcom', function(req, res, next) {
           var userid = req.body.userid;
           var objid = req.body.objid;
