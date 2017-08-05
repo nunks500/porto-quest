@@ -37,6 +37,7 @@ app.post('/api/createuser', function(req, res, next) {
 	 var nome = req.body.name;
 	 var password = req.body.password;
 	 var email = req.body.email;
+     var image = req.body.image;
      var fb = req.body.fb;
 
      if(!(fb == 1)){
@@ -48,10 +49,6 @@ app.post('/api/createuser', function(req, res, next) {
      }
  }
 
-
-
-
-
 	 if(!req.checkBody("email", "ERRORLOGIN").isEmail()){
 	 	res.status(400).json({
                     message_class: 'error',
@@ -59,7 +56,7 @@ app.post('/api/createuser', function(req, res, next) {
                 });
 	 }
 	 console.log(req.body);
-	 database.insertUser(email, password, username, nome)
+	 database.insertUser(email, password, username, nome, image)
                 .then(function (user_id) {
                     res.status(200).json({
                                 message: "SUCCESS"

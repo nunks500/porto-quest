@@ -21,7 +21,37 @@ client.connect((err) => {
   }
 })
 
- exports.insertUser = function (email, password, username, name) {
+ exports.insertUser = function (email, password, username, name, image) {
+  if(isNaN(Number(username))){
+return new Promise(function (resolve, reject) {
+            bcrypt.hash(password, null, null, function (err, hash) {
+                if (err) {
+                    reject(err);
+                } else {
+                    crypto.randomBytes(20, function (err, buf) {
+                        if (err) {
+                            reject(err);
+                        } else {
+                          client.query("INSERT INTO utilizador(username,password,nome,email,image,token) VALUES ($1, $2, $3 ,$4, $5, $6)",[username, hash, name, email, image, buf.toString('hex')],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result.insertId);
+      
+                                    }
+                                });
+
+
+                        }
+                    });
+                }
+            });
+        });
+
+  }
+  else{
         return new Promise(function (resolve, reject) {
             bcrypt.hash(password, null, null, function (err, hash) {
                 if (err) {
@@ -48,6 +78,7 @@ client.connect((err) => {
                 }
             });
         });
+      }
     }
 
      exports.insertLocal = function (description,imagelink,lat,long) {
