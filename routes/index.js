@@ -39,6 +39,14 @@ app.post('/api/createuser', function(req, res, next) {
 	 var email = req.body.email;
 	 console.log("fodeu");
 
+     if(!isNaN(Number(username))){
+        res.status(400).json({
+                    message_class: 'error',
+                    message: 'USERNAME CANNOT BE A NUMBER'
+                });
+     }
+
+
 	 if(!req.checkBody("email", "ERRORLOGIN").isEmail()){
 	 	res.status(400).json({
                     message_class: 'error',
@@ -56,6 +64,7 @@ app.post('/api/createuser', function(req, res, next) {
 
 
 });
+
 
 app.get('/api/getusers', function(req, res, next) {
 
