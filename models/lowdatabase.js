@@ -129,7 +129,7 @@ return new Promise(function (resolve, reject) {
 
     exports.getuser = function (id) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT * FROM utilizador WHERE utilizador.id = $1",[id],
+                          client.query("SELECT * FROM utilizador WHERE utilizador.username = $1",[id],
                           function (err, result) {
                                     if (err) {
                                         reject(err);

@@ -224,9 +224,9 @@ app.get('/api/getallobj', function(req, res, next) {
 
 app.post('/api/getuser', function(req, res, next) {
     
-        var id = req.body.id;
+        var username = req.body.username;
 
-         database.getuser(id)
+         database.getuser(username)
                 .then(function (user_id) {           
                                res.status(200).send(user_id.rows);
                             });
