@@ -22,7 +22,7 @@ client.connect((err) => {
 })
 
  exports.insertUser = function (email, password, username, name, image) {
-  if(isNaN(Number(username))){
+  if(Number(username)){
 return new Promise(function (resolve, reject) {
             bcrypt.hash(password, null, null, function (err, hash) {
                 if (err) {
