@@ -80,6 +80,22 @@ client.connect((err) => {
                                 });
                           });
     }
+
+      exports.getusers = function (description,imagelink,lat,long) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM utilizador",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
        exports.deleteLocal = function (description) {
        return new Promise(function (resolve, reject) {
                           client.query("DELETE FROM local WHERE description= $1",[description],

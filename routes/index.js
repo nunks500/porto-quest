@@ -57,6 +57,18 @@ app.post('/api/createuser', function(req, res, next) {
 
 });
 
+app.get('/api/getusers', function(req, res, next) {
+
+
+ database.getusers()
+                .then(function (local) {
+                    res.status(200).send(local.rows);
+                })
+
+
+});
+
+
 app.post('/api/createlocal', function(req, res, next) {
 	 var description = req.body.description;
 	 var imagelink = req.body.image;
