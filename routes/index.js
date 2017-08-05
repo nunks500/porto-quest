@@ -112,6 +112,18 @@ app.delete('/api/deletelocal', function(req, res, next) {
 
 });
 
+app.delete('/api/deleteuser', function(req, res, next) {
+     var username = req.body.username;
+
+     database.deleteuser(username)
+                .then(function (user_id) {
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+});
+
 
 app.get('/api/getlocals', function(req, res, next) {
 	

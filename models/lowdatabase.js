@@ -199,6 +199,21 @@ client.connect((err) => {
                           });
     }
 
+         exports.deleteuser = function (username) {
+       return new Promise(function (resolve, reject) {
+                          client.query("DELETE FROM utilizador WHERE username = $1",[username],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
 
             exports.getnotobjbyids = function (id) {
        return new Promise(function (resolve, reject) {
