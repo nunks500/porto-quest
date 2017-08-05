@@ -157,7 +157,12 @@ app.post('/api/getuserbyid', function(req, res, next) {
          database.getuserbyid(id)
                 .then(function (user_id) {           
                                res.status(200).send(user_id.rows);
-                            });
+                            })
+                .catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERRORLOGIN1"
+                    })});
 
 
 
