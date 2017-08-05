@@ -37,14 +37,19 @@ app.post('/api/createuser', function(req, res, next) {
 	 var nome = req.body.name;
 	 var password = req.body.password;
 	 var email = req.body.email;
-	 console.log("fodeu");
+     var fb = req.body.fb;
 
-     if(!isNaN(Number(username))){
+     if(!(fb == 1)){
+         if(!isNaN(Number(username))){
         res.status(400).json({
                     message_class: 'error',
                     message: 'USERNAME CANNOT BE A NUMBER'
                 });
      }
+ }
+
+
+
 
 
 	 if(!req.checkBody("email", "ERRORLOGIN").isEmail()){
@@ -154,6 +159,13 @@ app.delete('/api/deleteallobj', function(req, res, next) {
 app.post('/api/login', function(req, res, next) {
      var username = req.body.username;
      var password = req.body.password;
+
+     if(!isNaN(Number(username))){
+        res.status(400).json({
+                    message_class: 'error',
+                    message: 'USERNAME CANNOT BE A NUMBER'
+                });
+     }
 
 
          database.login(username,password)
