@@ -320,7 +320,7 @@ app.post('/api/getper', function(req, res, next) {
                         }
                         res.status(200).send(user_id.rows);
                });
-            }
+            });
 
 
 
