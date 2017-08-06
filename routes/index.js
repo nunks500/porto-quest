@@ -311,9 +311,14 @@ app.post('/api/getper', function(req, res, next) {
     var id = req.body.id;
     
          database.getper(id)
-                .then(function (user_id) {         
-                               res.status(200).send(user_id.rows);
-                            });
+                .then(function (user_id) {
+                     if(user_id.rows[0].count1 == null){
+                            user_id.rows[0].count1 = 0;
+                        }
+                        if(user_id.rows[0].count2 == null){
+                            user_id.rows[0].count2 = 0;
+                        }
+                        res.status(200).send(user_id.rows);
                
 
 });
