@@ -160,6 +160,22 @@ return new Promise(function (resolve, reject) {
                                 });
                           });
     }
+        exports.getper = function (id) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT count(objetivos.id),cenas FROM objetivos,(SELECT count(objetivoscompletos.objectid) as cenas FROM objetivoscompletos,objetivos WHERE objetivoscompletos.utilizadorid = $1 and objetivoscompletos.objectid = objetivos.id)",[id],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     if(result.rows.length == 0)
+                                        reject(err);
+                                      else
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
 
        exports.getuserbyid = function (id) {
        return new Promise(function (resolve, reject) {
