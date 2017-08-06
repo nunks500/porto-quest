@@ -319,9 +319,8 @@ app.post('/api/getper', function(req, res, next) {
                             user_id.rows[0].count2 = 0;
                         }
                         res.status(200).send(user_id.rows);
-               
-
-});
+               });
+            }
 
 
 
