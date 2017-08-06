@@ -310,7 +310,7 @@ app.post('/api/getcoinsbyid', function(req, res, next) {
 app.post('/api/getper', function(req, res, next) {
     var id = req.body.id;
     
-         database.getcoinsbyid(id)
+         database.getper(id)
                 .then(function (user_id) {         
                                res.status(200).send(user_id.rows);
                             });
