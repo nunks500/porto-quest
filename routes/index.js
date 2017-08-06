@@ -294,7 +294,7 @@ app.post('/api/getcoinsbyid', function(req, res, next) {
     
          database.getcoinsbyid(id)
                 .then(function (user_id) {         
-                                console.log(user_id.rows[0].sum);
+                                console.log(user_id.rows[0]['sum']);
                                     if(user_id.rows[0].sum == "null"){
                                          res.status(200).json({
                                 sum: 0
