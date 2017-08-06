@@ -275,6 +275,7 @@ app.post('/api/insertobjcom', function(req, res, next) {
 });
 
 
+
 app.post('/api/getobjbyid', function(req, res, next) {
     var id = req.body.id;
     
@@ -287,6 +288,23 @@ app.post('/api/getobjbyid', function(req, res, next) {
 
 
 });
+
+app.post('/api/getcoinsbyid', function(req, res, next) {
+    var id = req.body.id;
+    
+         database.getcoinsbyid(id)
+                .then(function (user_id) {           
+                               res.status(200).send(user_id.rows);
+                            }).catch(function (err) {
+                           res.status(200).json({
+                        coins: 0
+                    })});
+               
+
+
+
+});
+
 
 app.delete('/api/deleteobjcomp', function(req, res, next) {
     
