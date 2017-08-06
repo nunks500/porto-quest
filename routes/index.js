@@ -293,15 +293,17 @@ app.post('/api/getcoinsbyid', function(req, res, next) {
     var id = req.body.id;
     
          database.getcoinsbyid(id)
-                .then(function (user_id) {           
+                .then(function (user_id) {         
+                                    if(user_id.rows[0].sum == "null"){
+                                         res.status(200).json({
+                                sum: 0
+                            });
+                                     }
+                                     else{
                                res.status(200).send(user_id.rows);
-                            }).catch(function (err) {
-                           res.status(200).json({
-                        coins: 0
-                    })});
+                           }
+                            });
                
-
-
 
 });
 
