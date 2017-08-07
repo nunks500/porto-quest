@@ -49,7 +49,7 @@ app.post('/api/createuser', function(req, res, next) {
      }
  }
 
-	 if(!req.checkBody("email", "ERRORLOGIN").isEmail()){
+	 if(!(req.checkBody("email", "ERRORLOGIN").isEmail())){
 	 	res.status(400).json({
                     message_class: 'error',
                     message: 'ERRORCREATEEMAIL'
