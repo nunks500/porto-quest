@@ -162,7 +162,7 @@ return new Promise(function (resolve, reject) {
     }
         exports.getper = function (id) {
        return new Promise(function (resolve, reject) {
-                          client.query("SELECT (SELECT count(objetivos.id) FROM objetivos GROUP BY objetivos.id) as count1,(SELECT count(objetivoscompletos.objectid) as cenas FROM objetivoscompletos,objetivos WHERE objetivoscompletos.utilizadorid = $1 and objetivoscompletos.objectid = objetivos.id group by objetivoscompletos.objectid) as count2",[id],
+                          client.query("SELECT (SELECT count(*) FROM objetivos) as count1,(SELECT count(objetivoscompletos.objectid) as cenas FROM objetivoscompletos,objetivos WHERE objetivoscompletos.utilizadorid = $1 and objetivoscompletos.objectid = objetivos.id group by objetivoscompletos.objectid) as count2",[id],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
