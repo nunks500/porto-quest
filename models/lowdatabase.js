@@ -61,7 +61,7 @@ return new Promise(function (resolve, reject) {
                         if (err) {
                             reject(err);
                         } else {
-                        	client.query("INSERT INTO utilizador(username,password,nome,email,image,token) VALUES ($1, $2, $3 ,$4, $5, $6)",[username, hash, name, email,'http://porto-quest.herokuapp.com/images/default.jpg', buf.toString('hex')],
+                        	client.query("INSERT INTO utilizador(username,password,nome,email,image,token) VALUES ($1, $2, $3 ,$4, $5, $6)",[username, hash, name, email,'http://porto-quest.herokuapp.com/images/default.png', buf.toString('hex')],
                           function (err, result) {
                                     if (err) {
                                         reject(err);
