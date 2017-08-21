@@ -118,7 +118,12 @@ app.post('/api/createlocal', function(req, res, next) {
                 .then(function (user_id) {
                     res.status(200).json({
                                 message: "SUCCESS"
-                            });
+                            })  .catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERROR PRODUCT"
+                    })});
+
                 })
 
 
