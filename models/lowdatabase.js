@@ -105,7 +105,7 @@ return new Promise(function (resolve, reject) {
                                         reject(err);
                                     } else {
                                      // console.log(result.rows[0].name);
-                                        resolve(result.insertId);
+                                        resolve(result);
       
                                     }
                                 });
@@ -121,7 +121,7 @@ return new Promise(function (resolve, reject) {
                                         reject(err);
                                     } else {
                                      // console.log(result.rows[0].name);
-                                        resolve(result.insertId);
+                                        resolve(result);
       
                                     }
                                 });
