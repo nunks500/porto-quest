@@ -79,6 +79,34 @@ app.get('/api/getusers', function(req, res, next) {
 
 });
 
+app.post('/api/v2/prodexists', function(req, res, next) {
+
+var scancode = req.body.scan;
+
+ database.prodexists(scancode)
+                .then(function (local) {
+                    res.status(200).send(local.rows);
+                })
+
+
+});
+
+app.post('/api/v2/insertprod', function(req, res, next) {
+
+var scancode = req.body.scan;
+var nome = req.body.name;
+
+ database.insertprod(scancode,nome)
+                .then(function (local) {
+                     res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+
+});
+
+
 
 app.post('/api/createlocal', function(req, res, next) {
 	 var description = req.body.description;

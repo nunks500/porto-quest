@@ -97,6 +97,38 @@ return new Promise(function (resolve, reject) {
 
     }
 
+         exports.prodexists = function (scan) {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM products WHERE products.referencia = $1",[scan],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result.insertId);
+      
+                                    }
+                                });
+                        });
+
+    }
+
+       exports.insertprod = function (scan,name) {
+       return new Promise(function (resolve, reject) {
+                          client.query("INSERT INTO products(referencia,name) VALUES ($1, $2)",[scan,name],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result.insertId);
+      
+                                    }
+                                });
+                        });
+
+    }
+
     exports.getLocals = function (description,imagelink,lat,long) {
        return new Promise(function (resolve, reject) {
                           client.query("SELECT * FROM local",
