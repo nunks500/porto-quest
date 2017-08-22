@@ -79,9 +79,9 @@ app.get('/api/getusers', function(req, res, next) {
 
 });
 
-app.post('/api/v2/prodexists', function(req, res, next) {
+app.get('/api/v2/prodexists', function(req, res, next) {
 
-var scancode = req.body.scan;
+var scancode = req.query.scan;
 
  database.prodexists(scancode)
                 .then(function (local) {
@@ -91,10 +91,10 @@ var scancode = req.body.scan;
 
 });
 
-app.post('/api/v2/insertprod', function(req, res, next) {
+app.get('/api/v2/insertprod', function(req, res, next) {
 
-var scancode = req.body.scan;
-var nome = req.body.name;
+var scancode = req.query.scan;
+var nome = req.query.name;
 
  database.insertprod(scancode,nome)
                 .then(function (local) {
