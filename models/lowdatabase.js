@@ -104,7 +104,9 @@ return new Promise(function (resolve, reject) {
                                     if (err) {
                                         reject(err);
                                     } else {
-                                     // console.log(result.rows[0].name);
+                                     if(result.rows.length == 0)
+                                        reject(err);
+                                      else
                                         resolve(result);
       
                                     }
