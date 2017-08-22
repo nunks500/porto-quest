@@ -87,6 +87,11 @@ var scancode = req.query.scan;
                 .then(function (local) {
                     res.status(200).send(local.rows);
                 })
+                .catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERROR PRODUCT"
+                    })})
 
 
 });
