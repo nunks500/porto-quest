@@ -120,14 +120,13 @@ app.get('/api/v2/geting', function(req, res, next) {
  database.geting()
                 .then(function (local) {
                     var temp = 0;
-                    var novoarray ={};
-                    console.log(local.rows[0]);
-                   /* for(temp = 0;temp < local.rows.length;temp++){
+                    var novoarray =[];
+                    for(temp = 0;temp < local.rows.length;temp++){
                         novoarray.push(local.rows[temp].name.toString());
 
                     }
-                    */
-                    res.status(200).send(local.rows);
+
+                    res.status(200).send(novoarray);
                 })
                 .catch(function (err) {
                            res.status(406).json({
