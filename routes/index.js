@@ -96,6 +96,40 @@ var scancode = req.query.scan;
 
 });
 
+app.get('/api/v2/inserting', function(req, res, next) {
+
+var name = req.query.name;
+var description = req.query.description;
+var danger = req.query.danger;
+
+ database.inserting(name,description,danger)
+                .then(function (local) {
+                    res.status(200).send(local.rows);
+                })
+                .catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERROR PRODUCT"
+                    })})
+
+
+});
+
+app.get('/api/v2/geting', function(req, res, next) {
+
+ database.geting()
+                .then(function (local) {
+                    res.status(200).send(local.rows);
+                })
+                .catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERROR PRODUCT"
+                    })})
+
+
+});
+
 app.get('/api/v2/insertprod', function(req, res, next) {
 
 var scancode = req.query.scan;

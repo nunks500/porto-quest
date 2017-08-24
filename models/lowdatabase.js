@@ -97,7 +97,37 @@ return new Promise(function (resolve, reject) {
 
     }
 
-         exports.prodexists = function (scan) {
+         exports.inserting = function (name,description,danger) {
+       return new Promise(function (resolve, reject) {
+                          client.query("INSERT INTO ingredients(name,description,danger) VALUES ($1, $2, $3)",[name, description, danger],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                        resolve(result);
+      
+                                    }
+                                });
+                        });
+
+    }
+
+     exports.geting = function () {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT name FROM ingredients",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                        resolve(result);
+      
+                                    }
+                                });
+                        });
+
+    }
+
+      exports.prodexists = function (scan) {
        return new Promise(function (resolve, reject) {
                           client.query("SELECT * FROM products WHERE products.referencia = $1",[scan],
                           function (err, result) {
