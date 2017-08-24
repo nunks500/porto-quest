@@ -121,11 +121,12 @@ app.get('/api/v2/geting', function(req, res, next) {
                 .then(function (local) {
                     var temp = 0;
                     var novoarray ={};
+                    console.log(local.rows);
                     for(temp = 0;temp < local.rows.length;temp++){
                         novoarray.push(local.rows[temp].name.toString());
 
                     }
-                    res.status(200).send(novoarray);
+                    res.status(200).send(local.rows);
                 })
                 .catch(function (err) {
                            res.status(406).json({
