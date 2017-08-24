@@ -126,7 +126,7 @@ app.get('/api/v2/geting', function(req, res, next) {
 
                     }
 
-                    res.status(200).send(novoarray);
+                    res.status(200).send(Arrays.asList(novoarray));
                 })
                 .catch(function (err) {
                            res.status(406).json({
