@@ -125,8 +125,9 @@ app.get('/api/v2/geting', function(req, res, next) {
                         novoarray.push(local.rows[temp].name.toString());
 
                     }
+                    var string = "{" + novoarray.toString() + "}";
 
-                    res.status(200).send(Arrays.asList(novoarray));
+                    res.status(200).send(string);
                 })
                 .catch(function (err) {
                            res.status(406).json({
