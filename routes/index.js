@@ -235,9 +235,7 @@ app.get('/api/v2/getpending', function(req, res, next) {
 
  database.getpending()
                 .then(function (local) {
-                     res.status(200).json({
-                                message: "SUCCESS"
-                            });
+                     res.status(200).send(local.rows);
                 })
 
 });
