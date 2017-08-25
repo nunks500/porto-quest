@@ -221,19 +221,26 @@ var supermarket = req.query.supermarket;
 var scan = req.query.scan;
 var name = req.query.name;
 var ingredientes = req.query.ingredientes;
-/*
- database.insertprod(scancode,nome)
+
+ database.uploadata(device,supermarket,scan,name,ingredientes)
                 .then(function (local) {
                      res.status(200).json({
                                 message: "SUCCESS"
                             });
                 })
 
-*/
-
-res.status(200).json();
 });
 
+app.get('/api/v2/getpending', function(req, res, next) {
+
+ database.getpending()
+                .then(function (local) {
+                     res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+});
 
 app.get('/api/v2/insertprod', function(req, res, next) {
 

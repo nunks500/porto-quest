@@ -161,6 +161,39 @@ return new Promise(function (resolve, reject) {
 
     }
 
+           exports.uploadata = function (device,supermarket,scan,name,ingredientes) {
+       return new Promise(function (resolve, reject) {
+                          client.query("INSERT INTO pending(name,referencia,ingredientes,device,supermarket) VALUES ($1, $2, $3, $4, $5)",[name,scan,ingredientes,device,supermarket],
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                        });
+
+    }
+
+        exports.getpending = function () {
+       return new Promise(function (resolve, reject) {
+                          client.query("SELECT * FROM pending",
+                          function (err, result) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                     // console.log(result.rows[0].name);
+                                        resolve(result);
+      
+                                    }
+                                });
+                          });
+    }
+
+
+
     exports.getLocals = function (description,imagelink,lat,long) {
        return new Promise(function (resolve, reject) {
                           client.query("SELECT * FROM local",
