@@ -139,7 +139,7 @@ app.get('/api/v2/geting', function(req, res, next) {
 });
 
 app.get('/api/v2/uploadimage', function(req, res, next) {
-
+    //SÓ FUNCIONA COM POST
      // Save base64 image to disk
     try
     {
@@ -212,6 +212,28 @@ app.get('/api/v2/uploadimage', function(req, res, next) {
 
 
 });
+
+
+app.get('/api/v2/uploadata', function(req, res, next) {
+
+var device = req.query.device;
+var supermarket = req.query.supermarket;
+var scan = req.query.scan;
+var name = req.query.name;
+var ingredientes = req.query.ingredientes;
+/*
+ database.insertprod(scancode,nome)
+                .then(function (local) {
+                     res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                })
+
+*/
+
+res.status(200).json();
+});
+
 
 app.get('/api/v2/insertprod', function(req, res, next) {
 

@@ -43,7 +43,7 @@ client.query('CREATE TABLE products(id SERIAL PRIMARY KEY, referencia int not nu
   .catch(e => console.error(e.stack))
  // .then(() => client.end())
 
-  client.query('CREATE TABLE pending(id SERIAL PRIMARY KEY, name VARCHAR(150) not null, referencia int not null UNIQUE, ingredientes VARCHAR(5000) not null,image VARCHAR(150))')
+  client.query('CREATE TABLE pending(id SERIAL PRIMARY KEY, name VARCHAR(150) not null, referencia int not null UNIQUE, ingredientes VARCHAR(5000) not null,device VARCHAR(100) not NULL, supermarket VARCHAR(150) not null)')
   .then(result => console.log(result))
   .catch(e => console.error(e.stack))
  // .then(() => client.end())
