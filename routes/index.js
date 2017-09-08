@@ -222,6 +222,12 @@ var scan = req.query.scan;
 var name = req.query.name;
 var ingredientes = req.query.ingredientes;
 
+console.log("name: " + name);
+  console.log("refencia:" + scan);
+ console.log("supermarket:" supermarket);
+   console.log("device:" + device); 
+  console.log("ingredientes:" + ingredientes);
+
  database.uploadata(device,supermarket,scan,name,ingredientes)
                 .then(function (local) {
                      res.status(200).json({
