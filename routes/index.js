@@ -227,7 +227,11 @@ var ingredientes = req.query.ingredientes;
                      res.status(200).json({
                                 message: "SUCCESS"
                             });
-                })
+                }).catch(function (err) {
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERROR PRODUCT"
+                    })});
 
 });
 
