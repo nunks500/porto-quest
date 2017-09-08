@@ -224,7 +224,7 @@ var ingredientes = req.query.ingredientes;
 
 console.log("name: " + name);
   console.log("refencia:" + scan);
- console.log("supermarket:" supermarket);
+ console.log("supermarket:" + supermarket);
    console.log("device:" + device); 
   console.log("ingredientes:" + ingredientes);
 
