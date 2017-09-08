@@ -166,7 +166,7 @@ return new Promise(function (resolve, reject) {
                           console.log("name: " + name);
                           console.log("refencia:" + scan);
                           console.log("supermarket:" supermarket);
-                          console.log("device:" + device);
+                          console.log("device:" + device); 
                           console.log("ingredientes:" + ingredientes);
                           client.query("INSERT INTO pending(name,referencia,ingredientes,device,supermarket) VALUES ($1, $2, $3, $4, $5)",[name,scan,ingredientes,device,supermarket],
                           function (err, result) {
