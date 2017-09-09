@@ -214,7 +214,7 @@ app.get('/api/v2/uploadimage', function(req, res, next) {
 });
 
 
-app.get('/api/v2/uploadata', function(req, res, next) {
+app.get('/api/v2/uploadata/', function(req, res, next) {
 
 var device = req.query.device;
 var supermarket = req.query.supermarket;
